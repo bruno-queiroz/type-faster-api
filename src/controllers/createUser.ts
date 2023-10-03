@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
-import { prisma } from "../app";
 import { validationResult } from "express-validator";
 
-export const createUser = async (req: Request, res: Response) => {
+import { createUser } from "../services/createUser";
+import { User } from "../repositories/userRepository";
+
+export const createUserController = async (req: Request, res: Response) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -12,11 +14,12 @@ export const createUser = async (req: Request, res: Response) => {
   }
 
   try {
-    const user = await prisma.user.create({
-      data: req.body,
-    });
+    const userBody: User = req.body;
+    const newUser = createUser(userBody);
 
-    res.status(201).json({ data: user, message: "User created", isOk: true });
+    res
+      .status(201)
+      .json({ data: newUser, message: "User created", isOk: true });
   } catch (err) {
     console.error("Error creating user", err);
 
