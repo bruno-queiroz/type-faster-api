@@ -10,6 +10,12 @@ export const userRepository = {
   async createUser(user: User) {
     const newUser = await prisma.user.create({
       data: user,
+      select: {
+        name: true,
+        email: true,
+        picture: true,
+        createdAt: true,
+      },
     });
 
     return newUser;
