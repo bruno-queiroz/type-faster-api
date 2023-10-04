@@ -21,8 +21,8 @@ export const userRepository = {
     return newUser;
   },
 
-  async findUniqueOrThrow(email: string) {
-    const user = await prisma.user.findUniqueOrThrow({
+  async findUnique(email: string) {
+    const user = await prisma.user.findUnique({
       where: {
         email,
       },
