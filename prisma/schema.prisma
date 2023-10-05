@@ -18,3 +18,11 @@ model User {
   picture   String?
   createdAt DateTime @default(now())
 }
+
+model Text {
+  id     String   @id @default(cuid())
+  data   String[]
+  author String
+  title  String
+  image  String
+}
