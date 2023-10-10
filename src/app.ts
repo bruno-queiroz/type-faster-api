@@ -5,6 +5,8 @@ import { corsOptions } from "./cors/config";
 import { PrismaClient } from "@prisma/client";
 
 import userRoutes from "./routes/user.routes";
+import textRoutes from "./routes/text.routes";
+
 env.config();
 
 export const prisma = new PrismaClient();
@@ -15,6 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/user", userRoutes);
+app.use("/api/text", textRoutes);
 
 const port = process.env.PORT || 3333;
 
