@@ -3,7 +3,7 @@ import { validationResult } from "express-validator";
 
 import { createUser } from "../services/createUser";
 import { User } from "../repositories/userRepository";
-import { Prisma } from "@prisma/client";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 export const createUserController = async (req: Request, res: Response) => {
   const errors = validationResult(req);
@@ -24,7 +24,7 @@ export const createUserController = async (req: Request, res: Response) => {
   } catch (err) {
     console.error("Error creating user", err);
 
-    if (err instanceof Prisma.PrismaClientKnownRequestError) {
+    if (err instanceof PrismaClientKnownRequestError) {
       const notUniqueFields = err.meta as { target: string[] };
 
       if (err.code === "P2002") {
