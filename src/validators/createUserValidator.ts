@@ -4,5 +4,5 @@ export const createUserValidationRules = [
   body("name").notEmpty().isLength({ min: 2 }),
   body("email").isEmail(),
   body("password").optional().isString(),
-  body("picture").optional(),
+  body("image").optional(),
 ];
