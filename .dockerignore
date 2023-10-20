@@ -3,4 +3,3 @@ __tests__
 .git
 docker-compose.yml
 npm-debug.log
-prisma
