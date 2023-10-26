@@ -7,6 +7,7 @@ import { PrismaClient } from "@prisma/client";
 import userRoutes from "./routes/user.routes";
 import textRoutes from "./routes/text.routes";
 import progressRoutes from "./routes/progress.routes";
+import rankingRoutes from "./routes/ranking.routes";
 
 env.config();
 
@@ -20,6 +21,7 @@ app.use(cors());
 app.use("/api/user", userRoutes);
 app.use("/api/text", textRoutes);
 app.use("/api/progress", progressRoutes);
+app.use("/api/ranking", rankingRoutes);
 
 const port = process.env.PORT || 3333;
 
