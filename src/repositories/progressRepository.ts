@@ -19,7 +19,19 @@ export const progressRepository = {
   },
 
   async createHistory(typing: TypingData) {
-    const addedTyping = await prisma.history.create({ data: typing });
+    const addedTyping = await prisma.history.create({
+      data: typing,
+      select: {
+        cpm: true,
+        createAt: true,
+        user: {
+          select: {
+            name: true,
+          },
+        },
+        id: true,
+      },
+    });
 
     return addedTyping;
   },
