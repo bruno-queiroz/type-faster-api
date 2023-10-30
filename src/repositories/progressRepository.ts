@@ -35,4 +35,22 @@ export const progressRepository = {
 
     return addedTyping;
   },
+
+  async getProgress(userId: string) {
+    const progress = await prisma.history.findMany({
+      where: { userId },
+      select: {
+        cpm: true,
+        createAt: true,
+      },
+
+      orderBy: {
+        createAt: "desc",
+      },
+
+      take: 1000,
+    });
+
+    return progress;
+  },
 };
