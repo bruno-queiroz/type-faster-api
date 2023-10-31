@@ -8,7 +8,7 @@ export const historyRepository = {
       },
       select: {
         cpm: true,
-        createAt: true,
+        createdAt: true,
         user: {
           select: {
             name: true,

@@ -23,7 +23,7 @@ export const progressRepository = {
       data: typing,
       select: {
         cpm: true,
-        createAt: true,
+        createdAt: true,
         user: {
           select: {
             name: true,
@@ -41,11 +41,11 @@ export const progressRepository = {
       where: { userId },
       select: {
         cpm: true,
-        createAt: true,
+        createdAt: true,
       },
 
       orderBy: {
-        createAt: "desc",
+        createdAt: "desc",
       },
 
       take: 1000,
