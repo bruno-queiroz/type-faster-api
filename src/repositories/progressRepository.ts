@@ -45,7 +45,7 @@ export const progressRepository = {
       },
 
       orderBy: {
-        createdAt: "desc",
+        createdAt: "asc",
       },
 
       take: 1000,
