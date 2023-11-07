@@ -36,5 +36,6 @@ model History {
   userId    String
   text      Text     @relation(fields: [textId], references: [id])
   textId    String
+  typos     Int      @default(0)
   createdAt DateTime @default(now())
 }
