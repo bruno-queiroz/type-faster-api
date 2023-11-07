@@ -1,10 +1,12 @@
+import { format } from "date-fns";
+
 interface Progress {
   cpm: number;
   createdAt: Date;
 }
 
 export const formatProgressData = (progress: Progress[]) => {
-  const data: Progress[] = [];
+  const data: { cpm: number; createdAt: string }[] = [];
   const oneQuarter = Math.floor(progress.length / 4);
 
   let cpmSum = 0;
@@ -16,15 +18,15 @@ export const formatProgressData = (progress: Progress[]) => {
       const initialDate = progress[data.length * oneQuarter].createdAt;
 
       data.push({
-        cpm: cpmSum / oneQuarter,
-        createdAt: initialDate,
+        cpm: Math.trunc(cpmSum / oneQuarter),
+        createdAt: format(initialDate, "MMM/dd/yy"),
       });
 
       cpmSum = 0;
     }
   });
 
-  const overallAverageCpm = cpmTotalSum / progress.length;
+  const overallAverageCpm = Math.trunc(cpmTotalSum / progress.length);
 
   return { overallAverageCpm, progress: data };
 };
