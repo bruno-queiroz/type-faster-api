@@ -24,6 +24,7 @@ export const progressRepository = {
       select: {
         cpm: true,
         createdAt: true,
+        typos: true,
         user: {
           select: {
             name: true,
@@ -42,6 +43,7 @@ export const progressRepository = {
       select: {
         cpm: true,
         createdAt: true,
+        typos: true,
       },
 
       orderBy: {

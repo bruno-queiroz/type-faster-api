@@ -7,6 +7,7 @@ export const addProgress = async (typing: TypingBody) => {
   const typingData = {
     userId: userId.id,
     cpm: Number(typing.cpm),
+    typos: Number(typing.typos),
     textId: typing.textId,
   };
 

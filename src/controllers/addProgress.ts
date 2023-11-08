@@ -6,6 +6,7 @@ export interface TypingBody {
   email: string;
   textId: string;
   cpm: string;
+  typos: number;
 }
 
 export const addProgressController = async (req: Request, res: Response) => {
