@@ -29,6 +29,11 @@ model Text {
   history History[]
 }
 
+model Word {
+  id   Int    @id @default(autoincrement())
+  word String
+}
+
 model History {
   id        Int      @id @default(autoincrement())
   cpm       Int
