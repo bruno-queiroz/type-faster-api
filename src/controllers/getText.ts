@@ -16,11 +16,23 @@ export const getTextController = async (req: Request, res: Response) => {
   }
 
   try {
-    const text = await getText();
+    if (req.query.mode === "traditional") {
+      const text = await getText();
 
-    res
-      .status(200)
-      .json({ data: text, message: "Text fetched successfully", isOk: true });
+      res
+        .status(200)
+        .json({ data: text, message: "Text fetched successfully", isOk: true });
+    } else if (req.query.mode === "repeated-words") {
+      const text = await getRepeatedWords();
+
+      res.status(200).json({
+        data: text,
+        message: "Repeated words fetched successfully",
+        isOk: true,
+      });
+    } else {
+      res.status(400).json({ message: "Invalid text mode.", isOk: false });
+    }
   } catch (err) {
     console.error("Something went wrong getting text", err);
 
