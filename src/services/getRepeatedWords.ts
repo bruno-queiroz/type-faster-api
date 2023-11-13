@@ -1,10 +1,10 @@
-import { textRepository } from "../repositories/textRepository";
+import { wordRepository } from "../repositories/wordRepository";
 import { generateRandomNumberOfWords } from "../utils/generateRandomNumberOfWords";
 
 const repeatedWordsImage = "https://i.ibb.co/mJWsTRG/keyboard-icon.png";
 
 export const getRepeatedWords = async () => {
-  const word = await textRepository.getWord();
+  const word = await wordRepository.getWord();
   const repeatedWord = generateRandomNumberOfWords(word[0]?.word);
 
   const data = {
