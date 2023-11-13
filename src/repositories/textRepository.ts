@@ -1,4 +1,4 @@
-import { Text, Word } from "@prisma/client";
+import { Text } from "@prisma/client";
 import { prisma } from "../app";
 
 interface TextData {
@@ -19,11 +19,5 @@ export const textRepository = {
       await prisma.$queryRaw`SELECT * FROM "Text" ORDER BY RANDOM() LIMIT 1`;
 
     return text;
-  },
-  async getWord() {
-    const word: Word[] =
-      await prisma.$queryRaw`SELECT * FROM "Word" ORDER BY RANDOM() LIMIT 1`;
-
-    return word;
   },
 };
