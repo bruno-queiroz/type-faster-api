@@ -3,17 +3,22 @@ import { userRepository } from "../repositories/userRepository";
 import bcrypt from "bcrypt";
 
 export const createUser = async (user: UserBody) => {
-  const passwordHashed = await bcrypt.hash("123", 10);
+  let passwordHashed = "";
 
-  if (user.image) {
-    user.picture = user.image;
-    delete user.image;
+  if (user?.password) {
+    passwordHashed = await bcrypt.hash(user.password, 10);
+  } else {
+    passwordHashed = await bcrypt.hash(Math.random().toString(), 10);
   }
 
-  const newUser = await userRepository.createUser({
-    ...user,
+  const createUserData = {
+    name: user.name,
+    email: user.email,
     password: passwordHashed,
-  });
+    picture: user?.image,
+  };
+
+  const newUser = await userRepository.createUser(createUserData);
 
   return newUser;
 };
