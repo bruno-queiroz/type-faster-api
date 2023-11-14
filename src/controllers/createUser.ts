@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 
 import { createUser } from "../services/createUser";
-import { User } from "../repositories/userRepository";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 export interface UserBody {
