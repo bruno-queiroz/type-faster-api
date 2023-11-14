@@ -5,9 +5,12 @@ import { createUser } from "../services/createUser";
 import { User } from "../repositories/userRepository";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
-export type UserBody = Omit<User, "picture"> & { image?: string } & {
-  [k: string]: string;
-};
+export interface UserBody {
+  name: string;
+  email: string;
+  password?: string;
+  image?: string;
+}
 
 export const createUserController = async (req: Request, res: Response) => {
   const errors = validationResult(req);
