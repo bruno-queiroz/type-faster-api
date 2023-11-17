@@ -22,5 +22,7 @@ export const signInUser = async (email: string, password: string) => {
   return {
     name: userFoundOnDatabase.name,
     picture: userFoundOnDatabase.picture,
+    email: userFoundOnDatabase.email,
+    id: userFoundOnDatabase.id,
   };
 };
