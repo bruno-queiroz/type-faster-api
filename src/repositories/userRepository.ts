@@ -14,7 +14,7 @@ export const userRepository = {
         name: true,
         email: true,
         picture: true,
-        createdAt: true,
+        id: true,
       },
     });
 
@@ -25,6 +25,13 @@ export const userRepository = {
     const user = await prisma.user.findUnique({
       where: {
         email,
+      },
+      select: {
+        name: true,
+        email: true,
+        picture: true,
+        id: true,
+        password: true,
       },
     });
 
