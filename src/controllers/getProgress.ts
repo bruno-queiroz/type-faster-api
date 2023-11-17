@@ -23,6 +23,7 @@ export const getProgressController = async (req: Request, res: Response) => {
     console.error("Error Getting progress", err);
 
     res.status(500).json({
+      data: [],
       message: "Something went wrong getting progress",
       isOk: false,
       code: 500,
