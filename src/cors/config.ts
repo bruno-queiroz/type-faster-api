@@ -1,6 +1,6 @@
 import { CorsOptions } from "cors";
 
-const allowedUrls = ["http://localhost:3000"];
+const allowedUrls = ["https://type-faster.vercel.app"];
 
 export const corsOptions: CorsOptions = {
   origin: function (origin, callback) {
