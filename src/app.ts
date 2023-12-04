@@ -17,7 +17,7 @@ export const prisma = new PrismaClient();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use("/api/user", userRoutes);
 app.use("/api/text", textRoutes);
