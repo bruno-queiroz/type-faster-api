@@ -2,7 +2,8 @@
 This is the api of my [TypeFaster](https://github.com/bruno-queiroz/type-faster.git) application
 
 ## Prerequisites
-You will need to install docker on your local machine.
+- Docker
+- Docker compose
 
 ## How to start the project
 
@@ -10,14 +11,9 @@ You will need to install docker on your local machine.
 ```
 git clone https://github.com/bruno-queiroz/type-faster-api.git
 ```
-2. Install dependencies
+2. Create an .env file on the root of the project
+3. Copy the environment variables from the .env.example file to the .env file
+4. Run the project
 ```
-npm install
-```
-3. Create an .env file on the root of the project
-4. Copy the environment variables from the .env.example file to the .env file
-5. Fill in the .env variables with your postgres configuration
-6. Run the project
-```
-npm run dev
+sudo docker-compose up
 ```
